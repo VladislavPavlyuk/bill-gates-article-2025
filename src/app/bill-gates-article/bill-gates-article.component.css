@@ -1,0 +1,32 @@
+.article {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.portrait {
+  width: 200px;
+  height: auto;
+  border-radius: 50%;
+}
+
+h1, h2 {
+  color: #2c3e50;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 5px 0;
+}
+
+a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
