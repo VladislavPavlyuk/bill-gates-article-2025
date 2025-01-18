@@ -14,10 +14,15 @@ import { ResourcesComponent } from './resources/resources.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  title(title: any) {
+    throw new Error('Method not implemented.');
+  }
+
   quotes: string[] = [];
   resources: string[] = [];
   newQuote: string = '';
   newResource: string = '';
+  currentView: string = 'quotes';
 
   addQuote() {
     if (this.newQuote) {
@@ -31,5 +36,9 @@ export class AppComponent {
       this.resources.push(this.newResource);
       this.newResource = '';
     }
+  }
+
+  setView(view: string) {
+    this.currentView = view;
   }
 }

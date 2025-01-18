@@ -3,18 +3,23 @@
   <div class="content">
 
     <div>
-      <app-biography></app-biography>
 
-      <h2>Learn more ...</h2>
+      <div>
+        <button (click)="setView('biography')">Biography</button>
+        <button (click)="setView('quotes')">Quotes</button>
+        <button (click)="setView('resources')">Resources</button>
+      </div>
 
-      <app-quotes [newQuotes]="quotes"></app-quotes>
+      <div [ngSwitch]="currentView">
+        <app-quotes *ngSwitchCase="'quotes'" [newQuotes]="quotes"></app-quotes>
+        <app-biography *ngSwitchCase="'biography'"></app-biography>
+        <app-resources *ngSwitchCase="'resources'" [newResources]="resources"></app-resources>
+      </div>
 
       <div>
         <input [(ngModel)]="newQuote" placeholder="Add a quote">
         <button (click)="addQuote()">Add a quote</button>
       </div>
-
-      <app-resources [newResources]="resources"></app-resources>
 
       <div>
         <h2>Add a link to the resource</h2>
@@ -25,14 +30,5 @@
     </div>
   </div>
 </main>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
 
 <router-outlet />
