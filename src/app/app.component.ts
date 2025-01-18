@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -22,7 +22,10 @@ export class AppComponent {
   resources: string[] = [];
   newQuote: string = '';
   newResource: string = '';
-  currentView: string = 'quotes';
+  //currentView: string = 'quotes';
+
+  @ViewChild(QuotesComponent) quotesComponent!: QuotesComponent;
+  @ViewChild(ResourcesComponent) resourcesComponent!: ResourcesComponent;
 
   addQuote() {
     if (this.newQuote) {
@@ -38,7 +41,4 @@ export class AppComponent {
     }
   }
 
-  setView(view: string) {
-    this.currentView = view;
-  }
 }
