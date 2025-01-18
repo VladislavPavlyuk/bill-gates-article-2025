@@ -4,24 +4,39 @@
 
     <div>
 
-      <app-biography></app-biography>
-
-      <app-quotes [newQuotes]="quotes"></app-quotes>
-      <div>
-        <input [(ngModel)]="newQuote" placeholder="Add a quote">
-        <button (click)="addQuote()">Add a quote</button>
-      </div>
-
-      <app-resources [newResources]="resources"></app-resources>
-      <div>
-        <h2>Add a link to the resource</h2>
-        <input [(ngModel)]="newResource" placeholder="Add a link to the resource">
-        <button (click)="addResource()">Add a link to the resource</button>
-      </div>
+      <mat-card>
+       <mat-card-title>
+        <app-biography></app-biography>
+        </mat-card-title>
+      </mat-card>
 
 
 
+      <mat-card>
+        <mat-card-title>
+          <app-quotes [newQuotes]="quotes"></app-quotes>
+        </mat-card-title>
+        <mat-card-content>
+          <mat-form-field appearance="fill">
+            <mat-label>Add a quote</mat-label>
+            <input matInput [(ngModel)]="newQuote">
+          </mat-form-field>
+          <button mat-raised-button color="primary" (click)="addQuote()">Add a quote</button>
+        </mat-card-content>
+      </mat-card>
 
+      <mat-card>
+        <mat-card-title>
+          <app-resources [newResources]="resources"></app-resources>
+        </mat-card-title>
+        <mat-card-content>
+          <mat-form-field appearance="fill">
+            <mat-label>Add a resource</mat-label>
+            <input matInput [(ngModel)]="newResource">
+          </mat-form-field>
+          <button mat-raised-button color="primary" (click)="addResource()">Add a resource</button>
+        </mat-card-content>
+      </mat-card>
 
     </div>
   </div>
