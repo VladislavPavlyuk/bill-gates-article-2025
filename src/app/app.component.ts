@@ -1,13 +1,35 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { BillGatesArticleComponent } from "./bill-gates-article/bill-gates-article.component";
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { QuotesComponent } from './quotes/quotes.component';
+import { BiographyComponent } from './biography/biography.component';
+import { ResourcesComponent } from './resources/resources.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, BillGatesArticleComponent],
+  standalone: true,
+  imports: [CommonModule, FormsModule, RouterModule, QuotesComponent, BiographyComponent, ResourcesComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'bill-gates-article';
+  quotes: string[] = [];
+  resources: string[] = [];
+  newQuote: string = '';
+  newResource: string = '';
+
+  addQuote() {
+    if (this.newQuote) {
+      this.quotes.push(this.newQuote);
+      this.newQuote = '';
+    }
+  }
+
+  addResource() {
+    if (this.newResource) {
+      this.resources.push(this.newResource);
+      this.newResource = '';
+    }
+  }
 }
