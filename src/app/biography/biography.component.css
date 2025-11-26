@@ -1,11 +1,39 @@
-.portrait {
-  width: 200px;
-  height: auto;
-  border-radius: 50%;
+.biography-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 1rem 0;
 }
 
-h1, h2 {
+.portrait {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  border: 4px solid white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portrait:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.biography-content p {
+  margin: 0;
+  flex: 1;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #34495e;
+  text-align: justify;
+}
+
+.biography-content p strong {
   color: #2c3e50;
+  font-weight: 700;
+  font-size: 1.1em;
 }
 
 ul {
@@ -24,4 +52,21 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .biography-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .portrait {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .biography-content p {
+    text-align: left;
+  }
 }

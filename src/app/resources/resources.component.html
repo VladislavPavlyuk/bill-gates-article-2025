@@ -1,11 +1,9 @@
 
 <div>
-  <h2>Resources</h2>
+  <h3>Resources</h3>
 
   <ul>
     <li *ngFor="let resource of resources"><a [href]="resource" target="_blank">{{ resource }}</a></li>
-  </ul>
-  <ul>
-    <li *ngFor="let newResource of newResources"><a [href]="newResource" target="_blank">{{ newResources }}</a></li>
+    <li *ngFor="let newResource of newResources"><a [href]="newResource" target="_blank">{{ newResource }}</a></li>
   </ul>
 </div>

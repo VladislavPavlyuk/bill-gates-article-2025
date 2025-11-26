@@ -28,29 +28,39 @@ import { ResourcesComponent } from './resources/resources.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title(title: any) {
-    throw new Error('Method not implemented.');
-  }
+  title = 'Bill Gates Article';
 
   quotes: string[] = [];
   resources: string[] = [];
   newQuote: string = '';
   newResource: string = '';
-  //currentView: string = 'quotes';
 
   @ViewChild(QuotesComponent) quotesComponent!: QuotesComponent;
   @ViewChild(ResourcesComponent) resourcesComponent!: ResourcesComponent;
 
   addQuote() {
-    if (this.newQuote) {
-      this.quotes.push(this.newQuote);
+    if (this.newQuote.trim()) {
+      this.quotes.push(this.newQuote.trim());
+      // Использование @ViewChild для доступа к методу дочернего компонента
+      if (this.quotesComponent) {
+        // @ViewChild используется для доступа к методу получения количества цитат
+        const totalCount = this.quotesComponent.getQuotesCount();
+        console.log('Total quotes count:', totalCount);
+      }
       this.newQuote = '';
     }
   }
 
   addResource() {
-    if (this.newResource) {
-      this.resources.push(this.newResource);
+    if (this.newResource.trim()) {
+      this.resources.push(this.newResource.trim());
+      // Использование @ViewChild для доступа к свойству дочернего компонента
+      // (проверка доступности компонента)
+      if (this.resourcesComponent) {
+        // @ViewChild используется для доступа к методу получения количества ресурсов
+        const totalCount = this.resourcesComponent.getResourcesCount();
+        console.log('Total resources count:', totalCount);
+      }
       this.newResource = '';
     }
   }

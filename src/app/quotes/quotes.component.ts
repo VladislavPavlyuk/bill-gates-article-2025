@@ -13,8 +13,20 @@ export class QuotesComponent {
     'Patience is a key element of success',
     'If you think your teacher is tough, wait till you get a boss',
     'Life is not fair — get used to it!',
-    'Success is a lousy teacher. It seduces smart people into thinking they can’t lose',
-    'Be nice to nerds. Chances are you’ll end up working for one'];
+    'Success is a lousy teacher. It seduces smart people into thinking they can\'t lose',
+    'Be nice to nerds. Chances are you\'ll end up working for one'];
 
   @Input() newQuotes: string[] = [];
+
+  // Метод для добавления цитаты, доступный через @ViewChild
+  addQuote(quote: string): void {
+    if (quote && quote.trim()) {
+      this.quotes.push(quote.trim());
+    }
+  }
+
+  // Метод для получения количества цитат
+  getQuotesCount(): number {
+    return this.quotes.length + this.newQuotes.length;
+  }
 }
